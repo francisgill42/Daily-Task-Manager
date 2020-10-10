@@ -1,59 +1,61 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  // Target (https://go.nuxtjs.dev/config-target)
-  target: 'static',
-
-  // Global page headers (https://go.nuxtjs.dev/config-head)
+  mode: 'universal',
+  /*
+  ** Headers of the page
+  */
   head: {
-    titleTemplate: '%s - Daily-Task-Manager',
+    titleTemplate: '',
     title: 'Daily Task Manager',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/logo.jpg' }
+      { rel: 'icon', type: 'image/x-icon', href: '/icon.png' }
     ]
   },
-
-  // Global CSS (https://go.nuxtjs.dev/config-css)
+  /*
+  ** Customize the progress-bar color
+  */
+  loading: { color: '#fff' },
+  /*
+  ** Global CSS
+  */
   css: [
   ],
-
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [
-  ],
-
-  // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
-
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [],
+  /*
+  ** Nuxt.js dev-modules
+  */
   buildModules: [
-    // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
-
-  // Modules (https://go.nuxtjs.dev/config-modules)
+  /*
+  ** Nuxt.js modules
+  */
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/pwa'
   ],
 
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
-
-  // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
+  /*
+  ** vuetify module configuration
+  ** https://github.com/nuxt-community/vuetify-module
+  */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
+        
+        light: {
+          primary: colors.teal.darken1,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -64,8 +66,14 @@ export default {
       }
     }
   },
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  /*
+  ** Build configuration
+  */
   build: {
+    /*
+    ** You can extend webpack config here
+    */
+    extend (config, ctx) {
+    }
   }
 }
