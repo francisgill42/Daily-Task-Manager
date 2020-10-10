@@ -114,18 +114,17 @@
 
     methods: {
       create () {
-        this.tasks.push({
+        var payload = {
           done: false,
           text: this.task,
-        })
+        };
+        this.tasks.push(payload)
 
         this.task = null
       },
       close(val){
-          confirm('Are you sure you want to delete this item?') && 
-          this.tasks.splice(this.tasks.indexOf(val), 1)
-
-},
+            this.tasks.splice(this.tasks.indexOf(val), 1)
+          },
     },
   }
 </script>
